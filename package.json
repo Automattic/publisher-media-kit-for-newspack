@@ -13,7 +13,7 @@
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
     "cypress:open": "cypress open --config-file tests/cypress/config.config.js",
-    "cypress:run": "cypress run --config-file tests/cypress/config.config.js",
+    "cypress:run": "cypress run --config-file tests/cypress/config.config.js --browser chrome",
     "clean-dist": "rm -rf ./dist"
   },
   "engines": {
