@@ -17,7 +17,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>10up is the leading news source in Sacramento. Making it Northern California’s GO-TO choice to stay informed on anything news, weather, sports &amp; entertainment.</p>
+<p>The News Paper is the leading news source in Sacramento. Making it Northern California’s GO-TO choice to stay informed on anything news, weather, sports &amp; entertainment.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -45,7 +45,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>10up has Measurable ROI! Ads on 10up.com have high click-through percentages against industry benchmark rates.</p>
+<p>The News Paper has Measurable ROI! Ads on The News Paper have high click-through percentages against industry benchmark rates.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->

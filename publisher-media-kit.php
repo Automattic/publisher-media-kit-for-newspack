@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Publisher Media Kit
- * Plugin URI:        https://github.com/10up/publisher-media-kit
+ * Plugin Name:       Publisher Media Kit for Newspack
+ * Plugin URI:        https://github.com/Automattic/publisher-media-kit-for-newspack
  * Description:       Pre-configured Media Kit Page using Gutenberg Block Patterns.
- * Version:           1.3.3
- * Requires at least: 6.2
+ * Version:           2.0
+ * Requires at least: 6.5
  * Requires PHP:      7.4
- * Author:            10up
- * Author URI:        https://10up.com
+ * Author:            10up, Automattic
+ * Author URI:        https://automattic.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       publisher-media-kit
@@ -17,7 +17,7 @@
  */
 
 // Useful global constants.
-define( 'PUBLISHER_MEDIA_KIT_VERSION', '1.3.3' );
+define( 'PUBLISHER_MEDIA_KIT_VERSION', '2.0' );
 define( 'PUBLISHER_MEDIA_KIT_URL', plugin_dir_url( __FILE__ ) );
 define( 'PUBLISHER_MEDIA_KIT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PUBLISHER_MEDIA_KIT_BLOCKS_PATH', plugin_dir_path( __FILE__ ) . 'includes/blocks/block-editor/' );

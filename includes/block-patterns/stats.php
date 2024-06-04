@@ -9,7 +9,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Monthly Unique Visitors on 10up.com</p>
+<p class="has-text-align-center">Monthly Unique Visitors on The News Paper</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -19,7 +19,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Monthly Page Views on 10up.com</p>
+<p class="has-text-align-center">Monthly Page Views on The News Paper</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
