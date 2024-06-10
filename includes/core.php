@@ -146,7 +146,7 @@ function create_media_kit_page() {
 		ob_start();
 		?>
 
-		<!-- wp:group {"metadata":{"name":"<?php echo esc_html__( 'Intro + Audience', 'publisher-media-kit' ); ?>"},"align":"full","style":{"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+		<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
 		<div class="wp-block-group alignfull" style="margin-bottom:var(--wp--preset--spacing--80)">
 
 			<?php
@@ -156,22 +156,21 @@ function create_media_kit_page() {
 
 		</div><!-- /wp:group -->
 
-		<!-- wp:group {"metadata":{"name":"<?php echo esc_html__( 'Columns', 'publisher-media-kit' ); ?>"},"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|80","margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group alignfull" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+		<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|80"}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignfull">
 
 			<?php
 			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-us.php';
 			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'ad-specs.php';
 			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'rates.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
 			?>
 
 		</div><!-- /wp:group -->
 
 		<?php
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
-
 		$pmk_page_content = ob_get_clean();
 
 		// create post object
