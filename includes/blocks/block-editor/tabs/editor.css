@@ -12,8 +12,15 @@
 	--tenup-tabs-untitled-tab-color: #6c6c6c;
 }
 
-.wp-block[data-type="tenup/tabs"] {
+.block-editor-block-preview__content-iframe {
+	& .wp-block[data-type="newspack/tabs"] {
+		& .tab-header .rich-text {
+			display: none;
+		}
+	}
+}
 
+.wp-block[data-type="tenup/tabs"] {
 	& .tab-group {
 
 		& > .block-editor-inner-blocks .wp-block[data-type="tenup/tabs-item"] {

@@ -23,7 +23,6 @@ function setup() {
 	add_action( 'init', $n( 'init' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
 
 	// Hook to allow async or defer on asset loading.
@@ -145,15 +144,33 @@ function create_media_kit_page() {
 
 		// Get block patterns to insert in a page.
 		ob_start();
+		?>
 
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'cover-esperanza.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience-profiles.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'stats.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-digital.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'digital-ad-specs.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'our-packages.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'our-rates.php';
-		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'question-block.php';
+		<!-- wp:group {"metadata":{"name":"<?php echo esc_html__( 'Intro + Audience', 'publisher-media-kit' ); ?>"},"align":"full","style":{"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignfull" style="margin-bottom:var(--wp--preset--spacing--80)">
+
+			<?php
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'intro.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience.php';
+			?>
+
+		</div><!-- /wp:group -->
+
+		<!-- wp:group {"metadata":{"name":"<?php echo esc_html__( 'Columns', 'publisher-media-kit' ); ?>"},"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|80","margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignfull" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+
+			<?php
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-us.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'ad-specs.php';
+			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'rates.php';
+			?>
+
+		</div><!-- /wp:group -->
+
+		<?php
+		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
+		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
+		include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
 
 		$pmk_page_content = ob_get_clean();
 
@@ -177,6 +194,14 @@ function create_media_kit_page() {
 		// insert post meta for identity.
 		add_post_meta( $post_ID, 'pmk-page', 1 );
 
+		// apply blank page template.
+		if ( get_template() === 'newspack-block-theme' ) {
+			update_post_meta( $post_ID, '_wp_page_template', 'page/blank-footer' );
+		} else {
+			update_post_meta( $post_ID, '_wp_page_template', 'no-header-footer.php' );
+			update_post_meta( $post_ID, 'newspack_hide_page_title', true );
+		}
+
 		// add media-kit page id in the database for reference.
 		add_option( 'pmk-page', $post_ID );
 
@@ -191,14 +216,14 @@ function create_media_kit_page() {
  * @return array
  */
 function get_enqueue_contexts() {
-	return [ 'admin', 'frontend', 'shared' ];
+	return [ 'admin', 'frontend' ];
 }
 
 /**
  * Generate an URL to a script, taking into account whether SCRIPT_DEBUG is enabled.
  *
  * @param string $script Script file name (no .js extension)
- * @param string $context Context for the script ('admin', 'frontend', or 'shared')
+ * @param string $context Context for the script ('admin' or 'frontend')
  *
  * @return string|WP_Error URL
  */
@@ -216,7 +241,7 @@ function script_url( $script, $context ) {
  * Generate an URL to a stylesheet, taking into account whether SCRIPT_DEBUG is enabled.
  *
  * @param string $stylesheet Stylesheet file name (no .css extension)
- * @param string $context Context for the script ('admin', 'frontend', or 'shared')
+ * @param string $context Context for the script ('admin' or 'frontend')
  *
  * @return string URL
  */
@@ -238,14 +263,6 @@ function style_url( $stylesheet, $context ) {
 function scripts() {
 
 	wp_enqueue_script(
-		'publisher_media_kit_shared',
-		script_url( 'shared', 'shared' ),
-		[],
-		PUBLISHER_MEDIA_KIT_VERSION,
-		true
-	);
-
-	wp_enqueue_script(
 		'publisher_media_kit_frontend',
 		script_url( 'frontend', 'frontend' ),
 		[],
@@ -255,43 +272,11 @@ function scripts() {
 }
 
 /**
- * Enqueue scripts for admin.
- *
- * @return void
- */
-function admin_scripts() {
-
-	wp_enqueue_script(
-		'publisher_media_kit_shared',
-		script_url( 'shared', 'shared' ),
-		[],
-		PUBLISHER_MEDIA_KIT_VERSION,
-		true
-	);
-
-	wp_enqueue_script(
-		'publisher_media_kit_admin',
-		script_url( 'admin', 'admin' ),
-		[],
-		PUBLISHER_MEDIA_KIT_VERSION,
-		true
-	);
-
-}
-
-/**
  * Enqueue styles for front-end.
  *
  * @return void
  */
 function styles() {
-
-	wp_enqueue_style(
-		'publisher_media_kit_shared',
-		style_url( 'shared-style', 'shared' ),
-		[],
-		PUBLISHER_MEDIA_KIT_VERSION
-	);
 
 	if ( is_admin() ) {
 		wp_enqueue_style(
@@ -303,7 +288,7 @@ function styles() {
 	} else {
 		wp_enqueue_style(
 			'publisher_media_kit_frontend',
-			style_url( 'style', 'frontend' ),
+			style_url( 'frontend-style', 'frontend' ),
 			[],
 			PUBLISHER_MEDIA_KIT_VERSION
 		);
@@ -316,13 +301,6 @@ function styles() {
  * @return void
  */
 function admin_styles() {
-
-	wp_enqueue_style(
-		'publisher_media_kit_shared',
-		style_url( 'shared-style', 'shared' ),
-		[],
-		PUBLISHER_MEDIA_KIT_VERSION
-	);
 
 	wp_enqueue_style(
 		'publisher_media_kit_admin',
