@@ -17,7 +17,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">You will air on 10up Digital Elements including: live streaming, pre roll on site &amp; banners on site.</p>
+<p class="has-text-align-center">You will air on The News Paper including: live streaming, pre roll on site &amp; banners on site.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
@@ -41,7 +41,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">You will air on 10up Digital Elements including: live streaming, pre roll on site &amp; banners on site.</p>
+<p class="has-text-align-center">You will air on The News Paper including: live streaming, pre roll on site &amp; banners on site.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
@@ -65,7 +65,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">You will air on 10up Digital Elements including: live streaming, pre roll on site &amp; banners on site.</p>
+<p class="has-text-align-center">You will air on The News Paper including: live streaming, pre roll on site &amp; banners on site.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
