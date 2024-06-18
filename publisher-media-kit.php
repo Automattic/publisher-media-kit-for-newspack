@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/Automattic/publisher-media-kit-for-newspack
  * Description:       Pre-configured Media Kit Page using Gutenberg Block Patterns.
  * Version:           2.0
- * Requires at least: 6.2
+ * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            10up, Automattic
  * Author URI:        https://automattic.com
