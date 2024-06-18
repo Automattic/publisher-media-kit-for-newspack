@@ -1,8 +1,12 @@
-# Contributing and Maintaining
+# Contributing to Newspack ✨
 
-First, thank you for taking the time to contribute!
+Hi! Thank you for your interest in contributing to Newspack!
 
-The following is a set of guidelines for contributors as well as information and instructions around our maintenance process.  The two are closely tied together in terms of how we all work together and set expectations, so while you may not need to know everything in here to submit an issue or pull request, it's best to keep them in the same document.
+These guidelines explain how the contribution process works. Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, we will reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
+
+There are many ways to contribute – reporting bugs, fixing or triaging bugs, feature suggestions, submitting pull requests for enhancements, improving the documentation. Your help making Newspack awesome will be greatly appreciated.
+
+**Please don't use the issue tracker for support questions or general inquiries. We are not currently looking for plugins or services to recommend within Newspack.**
 
 ## Installation
 
@@ -29,46 +33,24 @@ npm install
 * `composer run lint` (run PHP code sniffer)
 * `composer run lint-fix` (auto correct fixable PHP coding standards errors)
 
-## Ways to contribute
+## Pull requests
 
-Contributing isn't just writing code - it's anything that improves the project.  All contributions are managed right here on GitHub.  Here are some ways you can help:
+To submit a patch to the plugin, simply create a pull request to the `trunk` branch of the repository. Please test and provide an explanation for your changes. When opening a pull request, please follow these guidelines:
 
-### Reporting bugs
-
-If you're running into an issue, please take a look through [existing issues](https://github.com/10up/publisher-media-kit/issues) and [open a new one](https://github.com/10up/publisher-media-kit/issues/new) if needed.  If you're able, include steps to reproduce, environment information, and screenshots/screencasts as relevant.
-
-### Suggesting enhancements
-
-New features and enhancements are also managed via [issues](https://github.com/10up/publisher-media-kit/issues).
-
-### Pull requests
-
-Pull requests represent a proposed solution to a specified problem.  They should always reference an issue that describes the problem and contains discussion about the problem itself.  Discussion on pull requests should be limited to the pull request itself, i.e. code review.
-
-For more on how 10up writes and manages code, check out our [10up Engineering Best Practices](https://10up.github.io/Engineering-Best-Practices/).
-
-### Testing
-
-Helping to test an open source project and provide feedback on success or failure of those tests is also a helpful contribution.  You can find details on the Critical Flows and Test Cases in [this project's GitHub Wiki](https://github.com/10up/publisher-media-kit/wiki) as well as details on our overall approach to [Critical Flows and Test Cases in our Open Source Best Practices](https://10up.github.io/Open-Source-Best-Practices/testing/#critial-flows).  Submitting the results of testing via our Critical Flows as a comment on a Pull Request of a specific feature or as an Issue when testing the entire project is the best approach for providing testing results.
+- **Ensure you stick to the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) and the [VIP Go Coding Standards](https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/)**
+- Install our pre-commit hook using composer. It'll help with the coding standards by automatically checking code when you commit.
+- Ensure you use LF line endings in your code editor. Use [EditorConfig](http://editorconfig.org/) if your editor supports it so that indentation, line endings and other settings are auto configured.
+- When committing, reference your issue number (#1234) and include a note about the fix.
+- Please **don't** modify the changelog or update the .pot files. These will be maintained by the Newspack team.
 
 ## Workflow
 
 The `develop` branch is the development branch which means it contains the next version to be released.  `trunk` contains the latest released version as reflected in the WordPress.org plugin repository.  Always work on the `develop` branch and open up PRs against `develop`.
 
-## Release instructions
+### Code review process
 
-- [ ] Branch: Starting from `develop`, cut a release branch named `release/X.Y.Z` for your changes.
-- [ ] Version bump: Bump the version number in `package-lock.json`, `package.json`, `publisher-media-kit.php`, `readme.txt`, and any other relevant files if it does not already reflect the version being released.  Update both the plugin "Version:" property and the plugin `PUBLISHER_MEDIA_KIT_VERSION` constant in `publisher-media-kit.php`.
-- [ ] Changelog: Add/update the changelog in `CHANGELOG.md` and `readme.txt`.
-- [ ] Props: update the `CREDITS.md` file with any new contributors, and confirm maintainers are accurate.
-- [ ] New files: Check to be sure any new files/paths that are unnecessary in the production version are included in [.distignore](https://github.com/10up/publisher-media-kit/blob/develop/.distignore).
-- [ ] Readme updates: Make any other readme changes as necessary. `README.md` is geared toward GitHub and `readme.txt` contains WordPress.org-specific content.  The two are slightly different.
-- [ ] Merge: Make a non-fast-forward merge from your release branch to `develop` (or merge the pull request), then do the same for `develop` into `trunk`, ensuring you pull the most recent changes into `develop` first (`git checkout develop && git pull origin develop && git checkout trunk && git merge --no-ff develop`). `trunk` contains the stable development version.
-- [ ] Push: Push your `trunk` branch to GitHub (e.g. `git push origin trunk`).
-- [ ] [Compare](https://github.com/10up/publisher-media-kit/compare/trunk...develop) `trunk` to `develop` to ensure no additional changes were missed.
-- [ ] Test the pre-release ZIP locally by [downloading](https://github.com/10up/publisher-media-kit/actions/workflows/build-release-zip.yml) it from the Build release zip action artifact and installing it locally. Ensure this zip has all the files we expect, that it installs and activates correctly and that all basic functionality is working.
-- [ ] Release: Create a [new release](https://github.com/10up/publisher-media-kit/releases/new), naming the tag and the release with the new version number, and targeting the `trunk` branch. Paste the changelog from `CHANGELOG.md` into the body of the release and include a link to the closed issues on the [milestone](https://github.com/10up/publisher-media-kit/milestone/#?closed=1).
-- [ ] SVN: Wait for the [GitHub Action](https://github.com/10up/publisher-media-kit/actions/workflows/dotorg-push-deploy.yml) to finish deploying to the WordPress.org repository. If all goes well, users with SVN commit access for that plugin will receive an emailed diff of changes.
-- [ ] Check WordPress.org: Ensure that the changes are live on [WordPress.org](https://wordpress.org/plugins/publisher-media-kit/). This may take a few minutes.
-- [ ] Close milestone: Edit the [milestone](https://github.com/10up/publisher-media-kit/milestone/#) with release date (in the `Due date (optional)` field) and link to GitHub release (in the `Description` field), then close the milestone.
-- [ ] Punt incomplete items: If any open issues or PRs which were milestoned for `X.Y.Z` do not make it into the release, update their milestone to `X.Y.Z+1`, `X.Y+1.0`, `X+1.0.0` or `Future Release`.
+Code reviews are an important part of the Newspack workflow. They help to keep code quality consistent, and they help every person working on Newspack learn and improve over time. We want to make you the best Newspack contributor you can be.
+
+Every PR should be reviewed and approved by someone other than the author, even if the author has write access. Fresh eyes can find problems that can hide in the open if you’ve been working on the code for a while.
+
+_Everyone_ is encouraged to review PRs and add feedback and ask questions, even people who are new to Newspack. Also, don’t just review PRs about what you’re working on. Reading other people’s code is a great way to learn new techniques, and seeing code outside of your own feature helps you to see patterns across the project. It’s also helpful to see the feedback other contributors are getting on their PRs.
