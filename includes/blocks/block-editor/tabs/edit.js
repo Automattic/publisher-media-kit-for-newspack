@@ -151,12 +151,6 @@ const TabsEdit = (props) => {
 				if (tabHeader && tabHeaderButton) {
 					tabHeader.style.left = `${tabHeaderButton.offsetLeft}px`;
 					tabHeader.style.top = `-${tabHeader.offsetHeight + 24}px`;
-
-					// For some reason with the Classic Theme, if tabHeader is empty we're 4px off. 
-					if ( document.body.classList.contains('theme-newspack-theme/newspack-theme') && tabHeader.querySelector( 'span' ) ) {
-						tabHeader.style.top = `-${tabHeader.offsetHeight + 28}px`;
-					}
-
 				}
 			});
 		});

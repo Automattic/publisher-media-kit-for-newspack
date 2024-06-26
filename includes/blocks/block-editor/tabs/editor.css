@@ -127,3 +127,13 @@
 .wp-block[data-type="newspack/tabs-item"] + .block-list-appender {
 	display: none !important;
 }
+
+body[class*="theme-newspack-theme/newspack-theme"] {
+	& .wp-block[data-type="newspack/tabs"] {
+		& .tab-header {
+			& .rich-text:has( span ) {
+				top: -4px;
+			}
+		}
+	}
+}
