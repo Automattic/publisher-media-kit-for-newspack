@@ -6,8 +6,9 @@
 
 .block-editor-block-preview__content-iframe {
 	& .wp-block[data-type="newspack/tabs"] {
-		& .tab-header .rich-text {
-			display: none;
+		& .tab-header .rich-text,
+		& .tab-header > div {
+			display: none !important;
 		}
 	}
 }
