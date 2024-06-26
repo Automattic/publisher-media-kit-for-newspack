@@ -1,197 +1,101 @@
-body:not(.wp-admin) div.wp-block-group.pmk-tabs-table {
-
-	& .tabs-header {
-		margin-bottom: var(--pmk-spacing-internal-medium);
-
-		@media (--wp-small) {
-			display: flex;
-			margin-bottom: var(--pmk-spacing-internal-xlarge);
-		}
-	}
-
-	& .tab-title {
-		border: 0;
-		margin-bottom: 0;
-
-		&::after {
-			background-color: var(--pmk-global-color-border);
-			content: "";
-			display: block;
-			height: 50%;
-			position: absolute;
-			right: calc(-1 * var(--pmk-spacing-internal-medium));
-			top: 50%;
-			transform: translateY(-50%);
-			width: 1px;
-		}
-	}
-
-	& .tab-content {
-		padding: 0;
-	}
+.wp-block-newspack-tabs {
+	background: var(--newspack-ui-color-body-bg, #fff);
 }
 
-div.wp-block-group.pmk-tabs-table {
-	margin-bottom: var(--pmk-spacing-components);
+.has-background .wp-block-newspack-tabs {
+	border-radius: var(--newspack-ui-border-radius-m, 6px);
+	padding: var(--newspack-ui-spacer-5, 24px);
+}
 
-	&.alignwide {
+.tab-list {
+	display: flex;
+	font-family: var(--newspack-ui-font-family, system-ui, sans-serif);
+	font-size: var(--newspack-ui-font-size-s, 16px);
+	font-weight: 600;
+	line-height: var(--newspack-ui-line-height-s, 1.5);
+	row-gap: var(--newspack-ui-spacer-base, 8px);
+}
+	
+.tab-item {
+	& > [role='tab'] {
+		background: none;
+		border: none;
+		border-bottom-width: calc( var(--newspack-ui-spacer-base, 8px) / 2 );
+		border-radius: var(--newspack-ui-border-radius-m, 6px) var(--newspack-ui-border-radius-m, 6px) 0 0;
+		color: var(--newspack-ui-color-neutral-60, #6c6c6c);
+		padding: var(--newspack-ui-spacer-2, 12px) var(--newspack-ui-spacer-3, 16px);
+		transition: box-shadow 125ms ease-in-out, color 125ms ease-in-out, outline 125ms ease-in-out;
 
-		& .tabs {
-			margin-left: auto !important; /* !important to override group styles */
-			margin-right: auto !important;
-			max-width: var(--pmk-alignwide-width) !important;
-			width: var(--pmk-alignwide-width) !important;
+		&:hover {
+			background: none;
+			box-shadow: inset 0 calc( var(--newspack-ui-spacer-base, 8px) / -2 ) 0 0 var(--wp--preset--color--base-3, #ddd);
+			color: inherit;
 		}
-	}
 
-	& .tab-title {
-		border-bottom: 1px solid var(--pmk-global-color-border);
-		font-size: var(--pmk-heading-5-font-size);
-		font-weight: var(--pmk-font-weight-normal);
-		line-height: var(--pmk-heading-5-line-height);
-		margin: 0 calc(var(--pmk-spacing-internal-medium) * 2) 0 0;
-		position: relative;
-
-
-		@media (--wp-small) {
-			font-size: var(--pmk-heading-2-font-size);
-			line-height: var(--pmk-heading-2-line-height);
-			overflow: inherit;
-		}
-
-	}
-
-	& .tabs-header {
-		border-bottom: 1px solid var(--pmk-global-color-border);
-		padding-bottom: 10px;
-		position: relative;
-	}
-
-	& .tab-list {
-		align-items: center;
-		display: flex;
-		height: auto;
-		overflow-x: auto;
-		overflow-y: hidden;
-		padding-left: 0;
-
-		@media (--wp-small) {
-			height: var(--tab-item-height);
-			overflow: inherit;
-			padding-left: inherit;
-		}
-	}
-
-	& .tab-item {
-		border: 0;
-		height: 100%;
-
-		/* Ensure list bullets stay hidden */
-		&::before {
+		&:empty {
 			display: none;
 		}
 
-		&.is-active [role="tab"] {
+		&:focus {
+			outline: none;
+		}
+
+		&:focus-visible {
+			outline: 2px solid;
+			outline-offset: -2px;
+		}
+	}
+
+	&.is-active {
+		> [role='tab'] {
 			background: none;
-			position: relative;
+			box-shadow: inset 0 calc( var(--newspack-ui-spacer-base, 8px) / -2 ) 0 0 currentcolor;
+			color: inherit;
 
-			&::after {
-				background-color: var(--pmk-global-color-accent);
-				bottom: auto;
-				content: "";
-				display: block;
-				height: 4px;
-				left: 0;
-				position: absolute;
-				top: 0;
-				width: 100%;
-
-				@media (--wp-small) {
-					bottom: -10px;
-					top: auto;
-				}
-			}
-		}
-
-		& > [role="tab"] {
-			align-items: center;
-			border: 0;
-			display: flex;
-			font-size: var(--pmk-text-smaller-font-size);
-			font-weight: var(--pmk-font-weight-bold);
-			height: 100%;
-			line-height: var(--pmk-text-small-line-height);
-			margin-right: var(--pmk-spacing-internal-large);
-			padding: 0 0 var(--pmk-spacing-internal-small);
-
-			@media (--wp-small) {
-				font-size: var(--pmk-text-small-font-size);
-				padding: 0;
-			}
-
-			&:first-of-type {
-				padding-left: 0;
-			}
-
-			&:hover,
-			&:focus {
-				background: none;
+			&:focus-visible {
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
 			}
 		}
 	}
 
-	& .tab-group {
-		border: 0;
+	&:first-of-type {
+		margin-left: 0;
+	}
 
-		& .tab-header {
-			font-family: unset;
-			font-size: unset;
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+	
+.tab-group {
+	border: 0 solid var(--newspack-ui-color-border, #ddd);
+	border-top-width: 1px;
+	margin: -1px 0 0;
+
+	&:not( :has( > * ) ) {
+		display: none;
+	}
+}
+	
+.tab-content {
+	padding: 0;
+	margin: var(--newspack-ui-spacer-5, 24px) 0 0;
+
+	& > * {
+		margin-bottom: var(--newspack-ui-spacer-5, 24px);
+		margin-top: var(--newspack-ui-spacer-5, 24px);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
-	& .tab-content {
-		font-size: var(--pmk-text-smaller-font-size);
-
-		@media (--wp-small) {
-			font-size: var(--pmk-text-small-font-size);
-		}
-
-		& .wp-block-table {
-			margin: 0;
-		}
-
-		& table {
-			border: 0;
-			border-bottom: 4px solid var(--pmk-global-color-accent-secondary);
-		}
-
-		& thead {
-			border: 0;
-		}
-
-		& th,
-		& td {
-			border: 0;
-			padding: var(--pmk-spacing-internal-medium) var(--pmk-spacing-internal-large);
-			text-align: left;
-		}
-
-		& tbody tr:nth-child(even) {
-			background-color: var(--wp--preset--color--base);
-			color: var(--wp--preset--color--contrast);
-		}
-
-		& tbody tr:nth-child(odd) {
-			background-color: var(--pmk-global-color-background-focus);
-			color: var(--pmk-global-color-text-on-background);
-		}
-
-		& tbody td {
-			border-right: 1px solid var(--pmk-global-color-border);
-
-			&:last-of-type {
-				border: 0;
-			}
-		}
+	&.is-active figcaption {
+		color: var( --wp--preset--color--contrast-3, #757575 );
 	}
 }

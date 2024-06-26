@@ -1,13 +1,13 @@
 {
-	"name": "tenup/tabs",
+	"name": "newspack/tabs",
 	"title": "Tabs",
 	"description": "Display sections of content with brief headings in a compact tab layout that shows one section at a time.",
 	"text-domain": "publisher-media-kit",
-	"category": "common",
+	"category": "newspack",
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "tenup/tabs-item",
+				"name": "newspack/tabs-item",
 				"attributes": {
 					"header": "Tab Header"
 				},
@@ -21,7 +21,7 @@
 				]
 			},
 			{
-				"name": "tenup/tabs-item",
+				"name": "newspack/tabs-item",
 				"attributes": {
 					"header": "Tab Two Header"
 				},
@@ -42,14 +42,10 @@
 			}
 		]
 	},
-	"attributes": {
-		"tabsTitle": {
-		  "type": "string"
-		}
-  },
-  "supports": {
-    "html": false
-  },
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
 	"editorScript": "file:../../../../dist/blocks/tabs-block/editor.js",
 	"editorStyle": "file:../../../../dist/blocks/tabs-block/editor.css",
 	"style": "file:../../../../dist/blocks/tabs-block/editor.css"

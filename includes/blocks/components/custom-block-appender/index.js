@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { Fragment } from '@wordpress/element';
 import { Inserter } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
+import { plus } from '@wordpress/icons';
 
 /**
  * CustomBlockAppender.
@@ -22,14 +23,14 @@ import { Button } from '@wordpress/components';
  * @param {string} [props.icon]       The icon to use.
  * @return {Function} The component.
  */
-const CustomBlockAppender = ({ rootClientId, buttonText, icon, ...buttonProps }) => {
+const CustomBlockAppender = ({ rootClientId, buttonText, ...buttonProps }) => {
 	return (
 		<Inserter
 			isAppender
 			rootClientId={rootClientId}
 			renderToggle={({ onToggle, disabled }) => (
 				<Fragment>
-					<Button onClick={onToggle} disabled={disabled} icon={icon} {...buttonProps}>
+					<Button onClick={onToggle} disabled={disabled} {...buttonProps}>
 						{buttonText}
 					</Button>
 				</Fragment>
@@ -42,13 +43,17 @@ CustomBlockAppender.propTypes = {
 	rootClientId: PropTypes.string.isRequired,
 	buttonText: PropTypes.string,
 	label: PropTypes.string,
+	variant: PropTypes.string,
 	icon: PropTypes.string,
+	size: PropTypes.string,
 };
 
 CustomBlockAppender.defaultProps = {
 	buttonText: '',
 	label: '',
-	icon: 'plus',
+	variant: 'primary',
+	icon: plus,
+	size: 'small',
 };
 
 export default CustomBlockAppender;

@@ -61,16 +61,14 @@ class Tabs {
 	public function render_tab_navigations( $block_content, $block ) {
 
 		// Bail early if not Tabs block
-		if ( 'tenup/tabs' !== $block['blockName'] ) {
+		if ( 'newspack/tabs' !== $block['blockName'] ) {
 			return $block_content;
 		}
 
 		if ( $block['innerBlocks'] ) {
 
-			$tabs_title = $block['attrs']['tabsTitle'] ?? '';
 			// Add tab navigation controls
 			$tabs = '<div class="tab-control"><div class="tabs-header">
-				<h2 class="tab-title">' . esc_html( $tabs_title ) . '</h2>
 				<ul class="tab-list" role="tablist">';
 
 			if ( is_array( $block['innerBlocks'] ) ) {

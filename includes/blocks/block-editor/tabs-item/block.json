@@ -1,14 +1,15 @@
 {
-	"name": "tenup/tabs-item",
+	"name": "newspack/tabs-item",
+	"category": "newspack",
 	"attributes":{
 		"header": {
 			"type": "string"
 		}
 	},
-  "supports": {
-    "reusable": false,
-    "html": false
-  },
-	"parent":[ "tenup/tabs" ],
+	"supports": {
+		"reusable": false,
+		"html": false
+	},
+	"parent":[ "newspack/tabs" ],
 	"editorScript": "file:../../../../dist/blocks/tabs-item-block/editor.js"
 }

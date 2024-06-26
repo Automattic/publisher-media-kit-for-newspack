@@ -13,7 +13,8 @@ import { compose, ifCondition } from '@wordpress/compose';
 import { useState, useEffect, Fragment } from '@wordpress/element';
 import { withSelect, withDispatch } from '@wordpress/data';
 import { Button, NavigableMenu } from '@wordpress/components';
-import { InnerBlocks, RichText } from '@wordpress/block-editor';
+import { plus } from '@wordpress/icons';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 
@@ -25,13 +26,11 @@ import { editPropsShape } from './props-shape';
 
 import './editor.css';
 
-const FilterableTabsHeader = createFilterableComponent('tenup.tabs.header');
-const FilterableTabsFooter = createFilterableComponent('tenup.tabs.footer');
+const FilterableTabsHeader = createFilterableComponent('newspack.tabs.header');
+const FilterableTabsFooter = createFilterableComponent('newspack.tabs.footer');
 
 const TabsEdit = (props) => {
 	const {
-		attributes: { tabsTitle },
-		setAttributes,
 		isSelected,
 		className,
 		clientId,
@@ -96,7 +95,7 @@ const TabsEdit = (props) => {
 
 	const resetEditing = () => {
 		const isEditing = document.querySelectorAll(
-			`#block-${clientId} > .wp-block-tenup-tabs .wp-block[data-is-tab-header-editing]`,
+			`#block-${clientId} > .wp-block-newspack-tabs .wp-block[data-is-tab-header-editing]`,
 		);
 		if (isEditing) {
 			isEditing.forEach((block) => block.removeAttribute('data-is-tab-header-editing'));
@@ -149,12 +148,9 @@ const TabsEdit = (props) => {
 					return;
 				}
 
-				const positionInfo = tabHeaderButton.getBoundingClientRect();
-
 				if (tabHeader && tabHeaderButton) {
 					tabHeader.style.left = `${tabHeaderButton.offsetLeft}px`;
-					tabHeader.style.width = `${positionInfo.width - 2}px`;
-					tabHeader.style.top = '-58px';
+					tabHeader.style.top = `-${tabHeader.offsetHeight + 24}px`;
 				}
 			});
 		});
@@ -162,12 +158,6 @@ const TabsEdit = (props) => {
 		return (
 			<div className="tab-control">
 				<div className="tabs-header">
-					<RichText
-						tagName="h2"
-						className="tab-title"
-						onChange={(newTitle) => setAttributes({ tabsTitle: newTitle })}
-						value={tabsTitle}
-					/>
 					<NavigableMenu
 						stopNavigationEvents
 						eventToOffset={() => {
@@ -180,12 +170,14 @@ const TabsEdit = (props) => {
 						{tabPanels}
 						<Button
 							className="add-tab-button"
-							icon="plus"
+							icon={plus}
 							label={__('Add New Tab', 'publisher-media-kit')}
+							variant="secondary"
+							size="small"
 							onClick={() => {
 								// eslint-disable-next-line react/prop-types
 								const created = createBlock(
-									'tenup/tabs-item',
+									'newspack/tabs-item',
 									{
 										header: '',
 									},
@@ -215,9 +207,9 @@ const TabsEdit = (props) => {
 				<div className="tab-group">
 					<InnerBlocks
 						orientation="horizontal"
-						allowedBlocks={['tenup/tabs-item']}
+						allowedBlocks={['newspack/tabs-item']}
 						// eslint-disable-next-line prettier/prettier
-						template={[['tenup/tabs-item', { header: '' }, [[ 'core/paragraph', {} ]]]]}
+						template={[['newspack/tabs-item', { header: '' }, [[ 'core/paragraph', {} ]]]]}
 						templateInsertUpdatesSelection
 						__experimentalCaptureToolbars
 					/>
