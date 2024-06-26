@@ -16,8 +16,8 @@ import CustomBlockAppender from '../../components/custom-block-appender';
 import createFilterableComponent from '../../utils/createFilterableComponent';
 import { editPropsShape } from './props-shape';
 
-const FilterableTabsItemHeader = createFilterableComponent('tenup.tabsItem.header');
-const FilterableTabsItemFooter = createFilterableComponent('tenup.tabsItem.footer');
+const FilterableTabsItemHeader = createFilterableComponent('newspack.tabsItem.header');
+const FilterableTabsItemFooter = createFilterableComponent('newspack.tabsItem.footer');
 
 const TabsItemEdit = (props) => {
 	const {
@@ -57,12 +57,11 @@ const TabsItemEdit = (props) => {
 				<InnerBlocks
 					templateInsertUpdatesSelection
 					__experimentalCaptureToolbars
-					allowedBlocks={applyFilters('tenup.tabs.allowedBlocks', true, name)}
+					allowedBlocks={applyFilters('newspack.tabs.allowedBlocks', true, name)}
 					renderAppender={() => (
 						<CustomBlockAppender
 							className="tabs-item-appender"
 							rootClientId={clientId}
-							isTertiary
 							showTooltip
 							label={__('Insert Tab Content', 'publisher-media-kit')}
 						/>
