@@ -5,7 +5,7 @@
  * @package PublisherMediaKit\Blocks
  */
 
-$classNames = array(
+$class_names = array(
 	'wp-block-newspack-tabs',
 	'tabs',
 	'horizontal',
@@ -13,7 +13,7 @@ $classNames = array(
 	! empty( $attributes['className'] ) ? $attributes['className'] : null,
 );
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_filter( $classNames ) ) ) ?>">
+<div class="<?php echo esc_attr( implode( ' ', array_filter( $class_names ) ) ); ?>">
 	<!-- Tabs Placeholder -->
 	<div class="tab-group">
 		<?php echo wp_kses_post( $content ); ?>
