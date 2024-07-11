@@ -55,120 +55,120 @@ function block_patterns_and_categories() {
 	// Register block pattern category for Publisher Media Kit.
 	register_block_pattern_category(
 		'publisher-media-kit',
-		array( 'label' => __( 'Publisher Media Kit', 'publisher-media-kit' ) )
+		array( 'label' => __( 'Newspack Media Kit', 'publisher-media-kit' ) )
 	);
 
 	global $wp_version;
 
-	// Register block pattern for cover image.
+	// Register block pattern for the intro.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'cover-esperanza.php';
-	$cover = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'intro.php';
+	$intro = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/cover-pattern',
+		'publisher-media-kit/intro',
 		array(
-			'title'       => __( 'Publisher Media Kit - Cover', 'publisher-media-kit' ),
-			'description' => __( 'The main cover image for the Publisher Media Kit page.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Intro', 'publisher-media-kit' ),
+			'description' => __( 'The intro section for the Media Kit page.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $cover ),
+			'content'     => wp_kses_post( $intro ),
 		)
 	);
 
-	// Register block pattern for audience profiles.
+	// Register block pattern for the audience.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience-profiles.php';
-	$audience_profiles = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience.php';
+	$audience = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/audience-profiles',
+		'publisher-media-kit/audience',
 		array(
-			'title'       => __( 'Publisher Media Kit - Audience Profiles', 'publisher-media-kit' ),
-			'description' => __( 'The 2 column layout showing the audience profiles.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Audience', 'publisher-media-kit' ),
+			'description' => __( 'A 3-column layout showing the audience.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $audience_profiles ),
+			'content'     => wp_kses_post( $audience ),
 		)
 	);
 
-	// Register block pattern for 5 column statics block.
+	// Register block pattern for why us.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'stats.php';
-	$stats = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-us.php';
+	$why_us = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/five-column-statics',
+		'publisher-media-kit/why-us',
 		array(
-			'title'       => __( 'Publisher Media Kit - 5 Column Statics', 'publisher-media-kit' ),
-			'description' => __( 'The 5 column layout showing the statics.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Why Us?', 'publisher-media-kit' ),
+			'description' => __( 'A 2-column layout for the "Why Us?" section.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $stats ),
+			'content'     => wp_kses_post( $why_us ),
 		)
 	);
 
-	// Register block pattern for 3 column why choose digital.
+	// Register block pattern for tabs with table structure for the ad specs.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-digital.php';
-	$why_digital = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'ad-specs.php';
+	$ad_specs = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/why-choose-digital',
+		'publisher-media-kit/ad-specs',
 		array(
-			'title'       => __( 'Publisher Media Kit - Why Choose Digital', 'publisher-media-kit' ),
-			'description' => __( 'The 3 column layout for why choose digital block.', 'publisher-media-kit' ),
-			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $why_digital ),
-		)
-	);
-
-	// Register block pattern for tabs with table structure for Ad specs.
-	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'digital-ad-specs.php';
-	$digital_ad_specs = ob_get_clean();
-	register_block_pattern(
-		'publisher-media-kit/tabs-table-ad-specs',
-		array(
-			'title'       => __( 'Publisher Media Kit - Ad Specs', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Ad Specs', 'publisher-media-kit' ),
 			'description' => __( 'Ad Specs tabular structure with tabs management.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $digital_ad_specs ),
+			'content'     => wp_kses_post( $ad_specs ),
 		)
 	);
 
-	// Register block pattern for our packages section.
+	// Register block pattern for tabs with table structure for the rates.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'our-packages.php';
-	$our_packages = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'rates.php';
+	$rates = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/our-packages',
+		'publisher-media-kit/rates',
 		array(
-			'title'       => __( 'Publisher Media Kit - Our Packages', 'publisher-media-kit' ),
-			'description' => __( 'The our packages layout with a short note and 3 column blocks.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Rates', 'publisher-media-kit' ),
+			'description' => __( 'Rates tabular structure with tabs management.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $our_packages ),
+			'content'     => wp_kses_post( $rates ),
 		)
 	);
 
-	// Register block pattern for tabs with table structure for Our rates.
+	// Register block pattern for the packages section.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'our-rates.php';
-	$our_rates = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
+	$packages = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/tabs-table-our-rates',
+		'publisher-media-kit/packages',
 		array(
-			'title'       => __( 'Publisher Media Kit - Our Rates', 'publisher-media-kit' ),
-			'description' => __( 'Our Rates tabular structure with tabs management.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Packages', 'publisher-media-kit' ),
+			'description' => __( 'Packages layout with a short note and a 3-column layout.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $our_rates ),
+			'content'     => wp_kses_post( $packages ),
 		)
 	);
 
-	// Register block pattern for still questions contact us block.
+	// Register block pattern for the contact (compact) section.
 	ob_start();
-	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'question-block.php';
-	$question_block = ob_get_clean();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
+	$contact_compact = ob_get_clean();
 	register_block_pattern(
-		'publisher-media-kit/still-questions',
+		'publisher-media-kit/contact-compact',
 		array(
-			'title'       => __( 'Publisher Media Kit - Still Questions', 'publisher-media-kit' ),
-			'description' => __( 'The block having a contact button if user has still questions.', 'publisher-media-kit' ),
+			'title'       => __( 'Media Kit - Contact (Compact)', 'publisher-media-kit' ),
+			'description' => __( 'A compact Call-To-Action to get in touch.', 'publisher-media-kit' ),
 			'categories'  => [ 'publisher-media-kit' ],
-			'content'     => wp_kses_post( $question_block ),
+			'content'     => wp_kses_post( $contact_compact ),
+		)
+	);
+
+	// Register block pattern for the contact section.
+	ob_start();
+	include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
+	$contact = ob_get_clean();
+	register_block_pattern(
+		'publisher-media-kit/contact',
+		array(
+			'title'       => __( 'Media Kit - Contact', 'publisher-media-kit' ),
+			'description' => __( 'A Call-To-Action to get in touch.', 'publisher-media-kit' ),
+			'categories'  => [ 'publisher-media-kit' ],
+			'content'     => wp_kses_post( $contact ),
 		)
 	);
 

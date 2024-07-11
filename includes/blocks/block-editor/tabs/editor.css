@@ -4,6 +4,15 @@
 	--wp-admin-gray-900: #1e1e1e;
 }
 
+.block-editor-block-preview__content-iframe {
+	& .wp-block[data-type="newspack/tabs"] {
+		& .tab-header .rich-text,
+		& .tab-header > div {
+			display: none !important;
+		}
+	}
+}
+
 .wp-block[data-type="newspack/tabs"] {
 	& .tab-group {
 
