@@ -29,7 +29,7 @@ define( 'PUBLISHER_MEDIA_KIT_BLOCK_PATTERS', PUBLISHER_MEDIA_KIT_PATH . 'include
  *
  * @return string Minimum version required.
  */
-function minimum_php_requirement() {
+function pmk_minimum_php_requirement() {
 	return '7.4';
 }
 
@@ -38,12 +38,12 @@ function minimum_php_requirement() {
  *
  * @return bool true if meets minimum requirements, false otherwise.
  */
-function site_meets_php_requirements() {
-	return version_compare( phpversion(), minimum_php_requirement(), '>=' );
+function pmk_site_meets_php_requirements() {
+	return version_compare( phpversion(), pmk_minimum_php_requirement(), '>=' );
 }
 
 // Check minimum PHP version.
-if ( ! site_meets_php_requirements() ) {
+if ( ! pmk_site_meets_php_requirements() ) {
 	add_action(
 		'admin_notices',
 		function() {
@@ -55,7 +55,7 @@ if ( ! site_meets_php_requirements() ) {
 						sprintf(
 							/* translators: %s: Minimum required PHP version */
 							__( 'Publisher Media Kit requires PHP version %s or later. Please upgrade PHP or disable the plugin.', 'publisher-media-kit' ),
-							esc_html( minimum_php_requirement() )
+							esc_html( pmk_minimum_php_requirement() )
 						)
 					);
 					?>
