@@ -1,2 +1,7 @@
 @import url("blocks/list.css");
 @import url("blocks/tabs.css");
+
+.publisher-media-kit__wrapper:first-child.wp-block-group > .wp-block-group__inner-container > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}

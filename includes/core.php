@@ -147,7 +147,7 @@ function create_media_kit_page() {
 		?>
 
 		<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group alignfull" style="margin-bottom:var(--wp--preset--spacing--80)">
+		<div class="wp-block-group alignfull publisher-media-kit__wrapper" style="margin-bottom:var(--wp--preset--spacing--80)">
 
 			<?php
 			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'intro.php';
