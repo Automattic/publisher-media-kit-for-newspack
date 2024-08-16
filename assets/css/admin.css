@@ -1,1 +1,5 @@
 @import url("style.css");
+
+.publisher-media-kit__wrapper .wp-block-image {
+    margin: 0;
+}
