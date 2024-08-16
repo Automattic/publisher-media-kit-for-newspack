@@ -150,8 +150,8 @@ function create_media_kit_page() {
 		<div class="wp-block-group alignfull" style="margin-bottom:var(--wp--preset--spacing--80)">
 
 			<?php
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'intro.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'intro.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'audience.php';
 			?>
 
 		</div><!-- /wp:group -->
@@ -160,12 +160,12 @@ function create_media_kit_page() {
 		<div class="wp-block-group alignfull publisher-media-kit__wrapper">
 
 			<?php
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-us.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'ad-specs.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'rates.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
-			include_once PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'why-us.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'ad-specs.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'rates.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact-compact.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'packages.php';
+			include PUBLISHER_MEDIA_KIT_BLOCK_PATTERS . 'contact.php';
 			?>
 
 		</div><!-- /wp:group -->
